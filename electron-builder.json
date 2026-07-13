@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.paperpilot.app",
+  "productName": "PaperPilot",
+  "directories": {
+    "buildResources": "build"
+  },
+  "files": [
+    "out/**/*",
+    "database/**/*"
+  ],
+  "asarUnpack": [
+    "**/*.{node,dll}"
+  ],
+  "mac": {
+    "target": ["dmg"],
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "win": {
+    "target": ["nsis"],
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  },
+  "extraResources": [
+    {
+      "from": "database",
+      "to": "database"
+    }
+  ]
+}

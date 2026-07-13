@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'ZSFT-j';
+  src: url('https://fontsapi.zeoseven.com/j/main.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --paperpilot-font: 'OPPO Sans 4.0', 'OPPO Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* Project/Archive card border hover — CSS :hover avoids stuck hover from Framer Motion whileHover on mount */
+.pp-hover-border-card {
+  border-color: var(--pp-card-border);
+  transition: border-color 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.pp-hover-border-card:hover {
+  border-color: var(--pp-card-border-hover);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--paperpilot-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Dark mode scrollbar — invert to white-based overlay */
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Tighten label-to-input spacing in vertical forms (applies globally) */
+.ant-form-item-label {
+  padding-bottom: 2px !important;
+}
+.ant-form-item {
+  margin-bottom: 12px !important;
+}
+
+/* Required asterisk: move to top-right of label text */
+.ant-form-item-required::before {
+  display: none !important;
+}
+.ant-form-item-required > div::after {
+  content: '*' !important;
+  color: #ff4d4f !important;
+  font-size: 12px !important;
+  vertical-align: super !important;
+  margin-left: -6px !important;
+}
+
+/* Full-width divider below modal header — applies to all modals.
+   Use !important to override antd cssinjs default `border-bottom: none` (non-wireframe mode).
+   Added padding-bottom so the divider isn't cramped against the title and close button. */
+[class*='ant-modal-header'] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  padding-bottom: 12px !important;
+}
+/* Ensure body content has breathing room below the header divider. */
+[class*='ant-modal-body'] {
+  padding-top: 4px !important;
+}
+/* Code version modal needs more top padding below the header divider. */
+.code-version-modal [class*='ant-modal-body'] {
+  padding-top: 20px !important;
+}
+
+/* Dark mode modal divider — lighter overlay on dark surfaces */
+[data-theme='dark'] [class*='ant-modal-header'] {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Smooth scrolling for antd Select dropdowns (virtual scroll disabled for short lists). */
+.rc-virtual-list,
+.ant-select-dropdown .rc-virtual-list-holder {
+  scroll-behavior: smooth !important;
+}
+
+/* Sidebar nav item hover */
+.sidebar-nav-item:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+.sidebar-nav-item.active:hover {
+  background: transparent !important;
+}
+
+/* Dark mode sidebar nav hover */
+[data-theme='dark'] .sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Typewriter cursor */
+.hero-cursor {
+  display: inline-block;
+  font-weight: 300;
+  animation: hero-blink 0.8s step-end infinite;
+}
+
+@keyframes hero-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* CodeMirror (LaTeX editor) — fill container + JetBrains Mono font */
+.latex-codemirror-host .CodeMirror {
+  height: 100%;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.latex-codemirror-host .CodeMirror-linenumber {
+  font-size: 12px;
+  font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+}
+
+/* Spinner rotation for loading icons */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
