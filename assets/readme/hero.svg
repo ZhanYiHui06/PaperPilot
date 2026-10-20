@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
   <title id="title">PaperPilot：学术论文全生命周期管理工具</title>
-  <desc id="desc">PaperPilot 标志与一句话介绍，下方是应用里真实使用的进度图谱：选题、编码、实验、撰写、待投稿、已投稿、已录用，被拒稿时可以生成旁生分支转投。</desc>
+  <desc id="desc">PaperPilot 标志与一句话介绍，下方是进度图谱示意，配色取自应用里的阶段颜色：选题、编码、实验、撰写、待投稿、已投稿、已录用，被拒稿时可以生成旁生分支转投。</desc>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0 L10 5 L0 10 z" fill="#9A988F"/>

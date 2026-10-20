@@ -10,7 +10,23 @@
   <img alt="Status" src="https://img.shields.io/badge/status-alpha-ca8a04.svg" />
 </p>
 
-<!-- SHOWCASE -->
+<p align="center">
+  <img src="./assets/readme/showcase.png" width="100%" alt="PaperPilot 真实界面：项目首页、带旁生分支的进度图谱、带 AI 摘要的代码版本、投稿邮件追踪。" />
+</p>
+
+<details>
+<summary><b>查看大图</b>（截图来自 <code>npm run seed:demo</code> 的演示数据）</summary>
+<br />
+
+| 项目首页 | 进度图谱 |
+| --- | --- |
+| <img src="./assets/readme/screenshots/home.png" alt="项目首页" /> | <img src="./assets/readme/screenshots/progress-graph.png" alt="进度图谱：CVPR 被拒后长出旁生分支" /> |
+| **代码版本** | **实验记录** |
+| <img src="./assets/readme/screenshots/code.png" alt="代码版本：快照、AI 摘要与 diff" /> | <img src="./assets/readme/screenshots/experiments.png" alt="实验记录表格" /> |
+| **LaTeX 撰写** | **投稿追踪** |
+| <img src="./assets/readme/screenshots/latex.png" alt="LaTeX 多文件工程与编辑器" /> | <img src="./assets/readme/screenshots/submission.png" alt="投稿邮件与 AI 摘要" /> |
+
+</details>
 
 ## 它解决什么
 
