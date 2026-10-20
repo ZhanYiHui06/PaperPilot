@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">PaperPilot 的数据流向</title>
+  <desc id="desc">项目、代码快照、实验、LaTeX 工程和邮件凭据都保存在本机。只有三类网络请求会离开设备：IMAP 拉取你的邮箱、调用你配置的 LLM 生成摘要、tectonic 首次使用时下载引擎与宏包。</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5B5A55"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" rx="24" fill="#F7F6F2"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="558.5" rx="23.25" fill="none" stroke="#DEDCD3" stroke-width="1.5"/>
+  <text x="64" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#5B5A55" letter-spacing="1.5">DATA FLOW · 数据去哪了</text>
+  <text x="64" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="34" font-weight="700" fill="#111111">数据默认留在本机，只有三条线会出门。</text>
+  <rect x="64" y="160" width="700" height="340" rx="20" fill="none" stroke="#111111" stroke-width="2"/>
+  <rect x="88" y="146" width="116" height="28" fill="#F7F6F2"/>
+  <text x="100" y="167" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="20" font-weight="700" fill="#111111">你的电脑</text>
+  <g transform="translate(88 200)">
+    <rect width="314" height="118" rx="14" fill="#FFFFFF" stroke="#DEDCD3" stroke-width="1.5"/>
+    <circle cx="30" cy="40" r="7" fill="#16a34a"/>
+    <text x="50" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="24" font-weight="700" fill="#111111">SQLite 数据库</text>
+    <text x="30" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="20" fill="#5B5A55">项目、实验、邮件、凭据</text>
+  </g>
+  <g transform="translate(426 200)">
+    <rect width="314" height="118" rx="14" fill="#FFFFFF" stroke="#DEDCD3" stroke-width="1.5"/>
+    <circle cx="30" cy="40" r="7" fill="#16a34a"/>
+    <text x="50" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="24" font-weight="700" fill="#111111">代码版本</text>
+    <text x="30" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="20" fill="#5B5A55">快照、diff 与 AI 摘要</text>
+  </g>
+  <g transform="translate(88 342)">
+    <rect width="314" height="118" rx="14" fill="#FFFFFF" stroke="#DEDCD3" stroke-width="1.5"/>
+    <circle cx="30" cy="40" r="7" fill="#16a34a"/>
+    <text x="50" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="24" font-weight="700" fill="#111111">LaTeX 工程</text>
+    <text x="30" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="20" fill="#5B5A55">源文件、版本、编译产物</text>
+  </g>
+  <g transform="translate(426 342)">
+    <rect width="314" height="118" rx="14" fill="#FFFFFF" stroke="#DEDCD3" stroke-width="1.5"/>
+    <circle cx="30" cy="40" r="7" fill="#16a34a"/>
+    <text x="50" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="24" font-weight="700" fill="#111111">数据导出</text>
+    <text x="30" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="20" fill="#5B5A55">JSON / Markdown 文件</text>
+  </g>
+  <line x1="768" y1="216.0" x2="844" y2="216.0" stroke="#5B5A55" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arr)"/>
+  <g transform="translate(852 170)">
+    <rect width="284" height="92" rx="14" fill="#FFFFFF" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="24" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="22" font-weight="700" fill="#111111">你的邮箱服务器</text>
+    <text x="24" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">IMAP 拉取投稿邮件</text>
+  </g>
+  <line x1="768" y1="330.0" x2="844" y2="330.0" stroke="#5B5A55" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arr)"/>
+  <g transform="translate(852 284)">
+    <rect width="284" height="92" rx="14" fill="#FFFFFF" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="24" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="22" font-weight="700" fill="#111111">你配置的 LLM</text>
+    <text x="24" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">生成摘要，默认 DeepSeek</text>
+  </g>
+  <line x1="768" y1="444.0" x2="844" y2="444.0" stroke="#5B5A55" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arr)"/>
+  <g transform="translate(852 398)">
+    <rect width="284" height="92" rx="14" fill="#FFFFFF" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="24" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="22" font-weight="700" fill="#111111">tectonic 下载源</text>
+    <text x="24" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">首次编译取引擎与宏包</text>
+  </g>
+  <text x="64" y="540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">不配置邮箱和 LLM 也能用；用 pdflatex / xelatex / lualatex 时不需要下载 tectonic。</text>
+</svg>
