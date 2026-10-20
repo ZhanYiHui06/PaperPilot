@@ -1,49 +1,91 @@
 <p align="center">
-  <img src="src/assets/logo/PaperPilot_black.svg" alt="PaperPilot" width="220" />
+  <img src="./assets/readme/hero.svg" width="100%" alt="PaperPilot：写论文的每一步，收进同一个桌面。进度图谱从选题、编码、实验、撰写、待投稿、已投稿走到已录用，被拒稿时可以长出旁生分支转投。" />
 </p>
-
-<h3 align="center">学术论文全生命周期管理工具</h3>
 
 <p align="center">
   <a href="./README_EN.md">English</a> &nbsp;·&nbsp; 简体中文
+  <br /><br />
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-111111.svg" />
+  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-5B5A55.svg" />
+  <img alt="Status" src="https://img.shields.io/badge/status-alpha-ca8a04.svg" />
 </p>
+
+<!-- SHOWCASE -->
+
+## 它解决什么
+
+选题记在便签里，代码版本靠文件夹名区分，实验数据塞在表格里，LaTeX 在几个编辑器之间来回粘，投稿邮件淹没在收件箱。每一步都不难，难的是你成了这些工具之间的搬运工。
+
+PaperPilot 把一篇论文从选题到录用的全过程收进一个桌面应用。每篇论文是一个项目，项目里有它自己的进度图、代码快照、实验记录、LaTeX 工程和投稿邮件。它不替你思考，只是让你不用再到处找东西。
+
+## 一篇论文，一路走下来
+
+| 阶段 | 用到的模块 | 它帮你做什么 |
+| --- | --- | --- |
+| 选题 | **项目管理** | 卡片式首页，标签整理，进行中和已归档分开放 |
+| 编码 | **代码版本** | 记录每次代码快照，自动生成 diff 和 AI 摘要，按版本对比回溯 |
+| 实验 | **实验记录** | 结构化登记参数、数据集、指标和笔记，表格与键值两种编辑方式 |
+| 撰写 | **LaTeX 撰写** | 内置 CodeMirror 编辑器、多文件工程、版本记录和 PDF 预览 |
+| 投稿 | **投稿追踪** | IMAP 拉取邮件，按论文标题筛出相关往来，AI 归类并摘要审稿意见 |
+| 全程 | **进度图谱 · 数据导出** | 一张图看清论文走到哪一步，拒稿可转投；一键导出全部数据备份 |
+
+## 数据去哪了
 
 <p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg" />
-  <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg" />
-  <img alt="Electron" src="https://img.shields.io/badge/Electron-33-47848F.svg" />
-  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB.svg" />
-  <img alt="Status" src="https://img.shields.io/badge/status-alpha-orange.svg" />
+  <img src="./assets/readme/data-flow.svg" width="100%" alt="项目、代码快照、实验、LaTeX 工程和邮件凭据都保存在本机。只有三类请求会离开设备：IMAP 拉取你的邮箱、调用你配置的 LLM 生成摘要、tectonic 首次使用时下载引擎与宏包。" />
 </p>
 
-<p align="center">
-  <img src="src/assets/about_hero.jpg" alt="PaperPilot Preview" width="720" />
-</p>
+- 所有数据存在本地 SQLite 数据库里，不上传到任何 PaperPilot 服务器。
+- 邮件通过 IMAP 直接从你的邮箱服务器拉取，凭据只存在本地数据库。
+- LLM 请求从你的设备直接发给你配置的服务商（OpenAI 兼容接口，默认 DeepSeek）。
 
----
+## 快速开始
 
-## 简介
+需要 Node.js ≥ 18、npm ≥ 9，Windows / macOS / Linux 均可。
 
-PaperPilot 诞生于一个朴素的感受：写一篇论文，本不该这么累。
+```bash
+npm install          # 会自动编译 better-sqlite3 等原生模块
+npm run dev          # 启动桌面应用
+npm run seed:demo    # 可选：写入 5 个演示项目，体验完整流程
+```
 
-选题记录散落在便签里，代码版本靠文件夹命名区分，实验数据塞在表格中，LaTeX 源文件在多个编辑器间来回粘贴，投稿后邮件淹没在收件箱——每一步都不难，却每一步都在消耗专注力。工具没有错，只是它们彼此隔离，让人成了工具之间的搬运工。
+演示数据覆盖已录用、拒稿转投、待返修、实验中、选题中五种状态，并附带代码版本、实验记录、邮件和 LaTeX 工程文件。
 
-PaperPilot 试图把论文的完整生命周期收拢到同一个桌面：**选题、代码版本、实验记录、LaTeX 撰写、投稿追踪、数据导出**，各环节既独立成章又彼此关联。它不替代你的思考，只是让过程更顺滑——让研究者把时间还给真正重要的事。
+开发模式下 LLM 配置以空 API Key 初始化。想预填 DeepSeek Key，可以在启动前设置环境变量：
 
-## 核心功能
+```bash
+DEEPSEEK_API_KEY=your-key-here npm run dev                  # bash / zsh
+$env:DEEPSEEK_API_KEY = "your-key-here"; npm run dev        # PowerShell
+```
 
-| 模块 | 说明 |
-| --- | --- |
-| **项目管理** | 创建、编辑、归档论文项目；卡片式首页与标签化组织 |
-| **进度图谱** | 可视化进度节点（选题→编码→实验→撰写→待投稿→已投稿），支持拒稿转投旁生分支 |
-| **代码版本管理** | 记录每次代码快照，自动生成 diff 与 AI 摘要，按版本对比回溯 |
-| **实验记录** | 结构化登记实验参数、数据集、指标与笔记，支持表格与键值编辑 |
-| **LaTeX 撰写** | 内置 CodeMirror 编辑器，多文件工程管理，支持 tectonic / pdflatex / xelatex / lualatex 编译，版本记录与 PDF 预览 |
-| **投稿追踪** | IMAP 邮件自动抓取，按论文标题过滤相关邮件，AI 生成审稿意见摘要 |
-| **数据导出** | 一键导出项目全量数据，便于备份与迁移 |
-| **设置中心** | LLM、邮件、Git、LaTeX 引擎与存储、外观等配置一体化管理 |
+生产构建永远不会打包 API Key，用户需要在「设置 → LLM 配置」里自己填写。
 
-## 技术栈
+<details>
+<summary><b>构建与打包</b></summary>
+
+```bash
+npm run build        # 编译主进程 + 渲染进程
+
+npm run dist:win     # Windows x64 + arm64
+npm run dist:mac     # macOS x64 + arm64
+npm run dist:linux   # Linux x64 + arm64
+```
+
+</details>
+
+## LaTeX 引擎
+
+| 引擎 | 类型 | 说明 |
+| --- | --- | --- |
+| **tectonic** | 内置 | 默认引擎，无需额外安装，首次使用自动下载 |
+| **pdflatex** | 系统 | 需要本地 TeX 发行版（TeX Live / MiKTeX） |
+| **xelatex** | 系统 | 支持中文，需要本地 TeX 发行版 |
+| **lualatex** | 系统 | 需要本地 TeX 发行版 |
+
+系统引擎会编译 3 次以处理交叉引用，输出到 `.build/` 子目录。在「设置 → LaTeX 引擎」里切换。
+
+<details>
+<summary><b>技术栈</b></summary>
 
 - **运行时**：Electron 33 + Vite 6 + React 19 + TypeScript 5.7
 - **UI**：[@lobehub/ui](https://github.com/lobeHub/lobe-ui) + Ant Design 6 + lucide-react
@@ -55,10 +97,13 @@ PaperPilot 试图把论文的完整生命周期收拢到同一个桌面：**选�
 - **编辑器**：CodeMirror 5（LaTeX 语法高亮）
 - **状态**：Zustand + React Router 7
 
-## 项目结构
+</details>
+
+<details>
+<summary><b>项目结构</b></summary>
 
 ```
-PaperPilot_3/
+PaperPilot/
 ├── electron/              # Electron 主进程
 │   ├── index.ts           # 主进程入口
 │   ├── preload.ts         # 预加载脚本（IPC 桥）
@@ -71,7 +116,7 @@ PaperPilot_3/
 │   │   ├── code-manager/  # 代码版本管理
 │   │   ├── experiment-manager/  # 实验记录
 │   │   ├── latex-editor/  # LaTeX 编辑器
-│   │   ├── submission-manager/ # 投稿与邮件追踪
+│   │   ├── submission-manager/  # 投稿与邮件追踪
 │   │   ├── data-export/   # 数据导出
 │   │   ├── settings/      # 设置中心
 │   │   ├── archive/       # 归档
@@ -86,90 +131,11 @@ PaperPilot_3/
 └── electron-builder.json  # 打包配置
 ```
 
-## 快速开始
+</details>
 
-### 环境要求
+## 参与
 
-- Node.js ≥ 18
-- npm ≥ 9
-- Windows / macOS / Linux
-
-### 安装依赖
-
-```bash
-npm install
-```
-
-> 安装时会自动执行 `electron-builder install-app-deps` 以编译原生模块（better-sqlite3 等）。
-
-### 开发模式
-
-```bash
-npm run dev
-```
-
-启动后，开发模式下 LLM 配置会以空 API Key 初始化。如需预填 DeepSeek Key，可设置环境变量：
-
-**PowerShell**
-```powershell
-$env:DEEPSEEK_API_KEY = "your-key-here"; npm run dev
-```
-
-**bash / zsh**
-```bash
-DEEPSEEK_API_KEY=your-key-here npm run dev
-```
-
-> 生产环境下，API Key 永不会被打包进应用，用户需在「设置 → LLM 配置」中手动填写。
-
-### 示例数据
-
-如需填充演示数据以体验完整工作流：
-
-```bash
-npm run seed:demo
-```
-
-该脚本会写入 5 个虚构项目（覆盖已录用、拒稿转投、待返修、实验中、选题中等阶段）及对应的代码版本、实验记录、邮件与 LaTeX 工程文件。
-
-### 构建与打包
-
-```bash
-# 编译主进程 + 渲染进程
-npm run build
-
-# 打包安装包（按平台选择）
-npm run dist:win     # Windows x64 + arm64
-npm run dist:mac     # macOS x64 + arm64
-npm run dist:linux   # Linux x64 + arm64
-```
-
-## LaTeX 编译说明
-
-PaperPilot 支持四种 LaTeX 引擎：
-
-| 引擎 | 类型 | 说明 |
-| --- | --- | --- |
-| **tectonic** | 内置 | 默认引擎，自带无需额外安装（首次使用自动下载） |
-| **pdflatex** | 系统 | 需本地安装 TeX 发行版（如 TeX Live / MiKTeX） |
-| **xelatex** | 系统 | 支持中文，需本地安装 TeX 发行版 |
-| **lualatex** | 系统 | 需本地安装 TeX 发行版 |
-
-系统引擎会执行 3 次编译以处理交叉引用，输出至 `.build/` 子目录。引擎切换在「设置 → LaTeX 引擎」中完成。
-
-## 数据与隐私
-
-- 所有数据存储在本地 SQLite 数据库，**不向任何服务器上传**。
-- 邮件通过 IMAP 直接从你的邮箱服务器拉取，凭据仅保存在本地数据库。
-- LLM 调用直接从你的设备发起，仅与配置的 LLM 服务商通信。
-
-## 开发文档
-
-- [DECISIONS.md](./DECISIONS.md) — 架构决策记录（ADR）
-
-## 贡献
-
-欢迎提交 Issue 与 Pull Request。目前处于 alpha 阶段，部分接口可能调整。
+目前处于 alpha 阶段，部分接口还会调整。欢迎提 Issue 和 Pull Request，架构上的取舍记录在 [DECISIONS.md](./DECISIONS.md)。
 
 ## 许可证
 
