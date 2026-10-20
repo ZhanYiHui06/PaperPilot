@@ -27,13 +27,13 @@
       <path d="M7.392 1.77612C11.688 1.77612 14.16 3.93612 14.16 7.68012C14.16 11.6401 11.688 13.9441 7.392 13.9441H4.392V18.6001H0V1.77612H7.392ZM7.176 10.4401C8.952 10.4401 9.984 9.52812 9.984 7.82412C9.984 6.16812 8.952 5.28012 7.176 5.28012H4.392V10.4401H7.176Z"/>
     </g>
   </g>
-  <g id="copy" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif">
+  <g id="copy" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif">
     <text x="64" y="252" font-size="40" font-weight="700" fill="#111111">写论文的每一步，收进同一个桌面。</text>
     <text x="64" y="298" font-size="22" fill="#5B5A55">代码快照 · 实验记录 · LaTeX 撰写 · 投稿邮件，归在同一个论文项目里，数据只留在本机。</text>
   </g>
   <line x1="64" y1="342" x2="1136" y2="342" stroke="#DEDCD3" stroke-width="1.5" stroke-dasharray="4 6"/>
   <text x="64" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" fill="#5B5A55" letter-spacing="1.5">PROGRESS GRAPH · 进度图谱</text>
-  <g id="graph" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="600" text-anchor="middle">
+  <g id="graph" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="21" font-weight="600" text-anchor="middle">
     <rect x="64.0" y="396" width="124" height="46" rx="23" fill="#475569"/>
     <text x="126.0" y="426" fill="#fff">选题</text>
     <line x1="192.0" y1="419.0" x2="217.0" y2="419.0" stroke="#9A988F" stroke-width="2" marker-end="url(#arr)"/>
@@ -61,5 +61,5 @@
     <rect x="656.0" y="500" width="164" height="46" rx="23" fill="none" stroke="#db2777" stroke-width="2" stroke-dasharray="6 5"/>
     <text x="738.0" y="530" fill="#db2777">转投下一家</text>
   </g>
-  <text x="632.0" y="529" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">拒稿不是终点：长出一条旁生分支，换个期刊重新走一遍</text>
+  <text x="632.0" y="529" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif" font-size="19" fill="#5B5A55">拒稿不是终点：长出一条旁生分支，换个期刊重新走一遍</text>
 </svg>
